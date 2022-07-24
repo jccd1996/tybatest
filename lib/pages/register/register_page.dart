@@ -91,9 +91,10 @@ class _RegisterPageState extends BaseState<RegisterPage, RegisterBloc> {
                         style: TextStyle(color: TybaColors.MAIN_GREEN),
                       ),
                     ),
-                    onPressed: () {
-                      bloc!.registerUser(
+                    onPressed: () async {
+                      await bloc!.registerUser(
                           _emailController.text, _passwordController.text);
+                      Navigator.pop(context);
                     },
                   ),
                 ],

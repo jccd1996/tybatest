@@ -71,11 +71,11 @@ class _MyProfilePageState extends BaseState<MyProfilePage, MyProfileBloc> {
               onPressed: () async {
                 var result = await bloc!.doLogout();
                 if (result) {
-                  Navigator.pushReplacement(
+                  Navigator.pushAndRemoveUntil<void>(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (_) => const LoginPage(),
-                    ),
+                        builder: (BuildContext context) => const LoginPage()),
+                    ModalRoute.withName('/'),
                   );
                 }
               },
